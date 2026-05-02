@@ -1,0 +1,55 @@
+{
+  "name": "cutemarkets-typescript",
+  "version": "0.1.0",
+  "description": "TypeScript SDK for real-time and historical options data with examples for chain scanners and earnings research.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "check:examples": "tsc -p tsconfig.examples.json --noEmit",
+    "prepublishOnly": "npm run build && npm run check && npm run check:examples"
+  },
+  "keywords": [
+    "cutemarkets",
+    "typescript-sdk",
+    "options-data",
+    "market-data",
+    "options-api",
+    "historical-data",
+    "nextjs"
+  ],
+  "author": "CuteMarkets",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://cutemarkets.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cutemarkets/cutemarkets-typescript"
+  },
+  "bugs": {
+    "url": "https://github.com/cutemarkets/cutemarkets-typescript/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.3"
+  }
+}

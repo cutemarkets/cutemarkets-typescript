@@ -9,6 +9,17 @@ export interface ApiResponse<T> {
   next_url?: string | null;
   results: T;
   error?: ErrorPayload;
+  rate_limit?: RateLimitInfo;
+}
+
+export interface Page<T> extends ApiResponse<T[]> {}
+
+export interface RateLimitInfo {
+  plan?: string;
+  limit_minute?: string;
+  remaining_minute?: number;
+  limit_day?: string;
+  remaining_day?: number;
 }
 
 export interface TickerSearchResult {

@@ -26,20 +26,8 @@ Quick links:
 
 ## Installation
 
-After the first npm release:
-
 ```bash
 npm install cutemarkets-typescript
-```
-
-Before the first npm release, use one of these paths instead:
-
-```bash
-# local development against a clone
-npm install ../cutemarkets-typescript
-
-# after the GitHub repo is public
-npm install github:cutemarkets/cutemarkets-typescript
 ```
 
 ## Quick Start
@@ -53,6 +41,8 @@ const chain = await client.options.chain("SPY", { limit: 5 });
 for (const contract of chain.results) {
   console.log(contract.details?.ticker, contract.implied_volatility);
 }
+
+console.log(client.lastRequestId, client.lastRateLimit?.remaining_minute);
 ```
 
 ## Why this SDK instead of raw fetch calls
@@ -62,14 +52,21 @@ Raw `fetch` works, but most developers end up rebuilding the same plumbing in ev
 ## Available Surfaces
 
 - `client.status()`
+- `client.nextPage(page)`
+- `client.paginate(...)`
 - `client.tickers.search(...)`
+- `client.tickers.searchAll(...)`
 - `client.tickers.expirations(ticker)`
 - `client.options.chain(ticker, params)`
+- `client.options.chainAll(ticker, params)`
 - `client.options.snapshot(underlying, optionContract)`
 - `client.options.contracts.list(params)`
+- `client.options.contracts.listAll(params)`
 - `client.options.contracts.get(optionsTicker, params)`
 - `client.options.quotes.list(optionsTicker, params)`
+- `client.options.quotes.listAll(optionsTicker, params)`
 - `client.options.trades.list(optionsTicker, params)`
+- `client.options.trades.listAll(optionsTicker, params)`
 - `client.options.trades.last(optionsTicker)`
 - `client.options.aggs.range(ticker, multiplier, timespan, from, to, params)`
 - `client.options.aggs.previous(ticker)`
